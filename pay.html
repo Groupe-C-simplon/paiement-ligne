@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Solutions de Paiement en Ligne - Guide Débutant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Les Solutions de Paiement en Ligne</h1>
+        <p>Guide simplifié</p>
+    </header>
+
+    <div class="navigation">
+        <a href="#introduction">Introduction</a>
+        <a href="#fonctionnement">Fonctionnement</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#integration">Intégration</a>
+        <a href="#securite">Sécurité</a>
+    </div>
+
+    <div class="container">
+        <section id="introduction">
+            <h2>Introduction aux paiements en ligne</h2>
+            <div class="card">
+                <p>Les <strong>solutions de paiement en ligne</strong> permettent aux sites web et applications de recevoir de l'argent des utilisateurs de manière sécurisée et pratique. Pour un développeur débutant, comprendre ces systèmes est essentiel pour créer des sites e-commerce ou des applications qui acceptent des paiements.</p>
+                
+                <div class="highlight">
+                    <p>Le paiement en ligne fait partie de ce qu'on appelle <strong>l'e-commerce</strong>, qui représente toutes les transactions commerciales effectuées sur internet.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="fonctionnement">
+            <h2>Comment fonctionnent les paiements en ligne?</h2>
+            <div class="card">
+                <p>Le processus de paiement en ligne implique plusieurs acteurs et étapes:</p>
+                <ol>
+                    <li><strong>Le client</strong>: La personne qui achète un produit ou service</li>
+                    <li><strong>Le marchand</strong>: L'entreprise ou personne qui vend le produit ou service</li>
+                    <li><strong>La passerelle de paiement</strong>: Le service qui traite la transaction</li>
+                    <li><strong>La banque émettrice</strong>: La banque du client</li>
+                    <li><strong>La banque acquéreuse</strong>: La banque du marchand</li>
+                </ol>
+
+                <h3>Le cycle d'un paiement en ligne:</h3>
+                <div class="code-block">
+                    1. Client → Choisit un produit et procède au paiement
+                    2. Site web → Envoie les informations à la passerelle de paiement
+                    3. Passerelle → Vérifie les informations et contacte la banque
+                    4. Banque → Autorise ou refuse la transaction
+                    5. Passerelle → Informe le site web du résultat
+                    6. Site web → Informe le client et finalise la commande
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions">
+            <h2>Les principales solutions de paiement</h2>
+            
+            <div class="solution">
+                <div class="solution-header">PayPal</div>
+                <div class="solution-content">
+                    <p><strong>Description</strong>: Service de paiement en ligne très populaire qui permet aux utilisateurs d'envoyer et recevoir de l'argent sans partager leurs informations bancaires.</p>
+                    <p><strong>Avantages</strong>: Facile à intégrer, reconnu mondialement, protection de l'acheteur</p>
+                    <p><strong>Inconvénients</strong>: Frais parfois élevés, peut rediriger l'utilisateur hors de votre site</p>
+                </div>
+            </div>
+
+            <div class="solution">
+                <div class="solution-header">Stripe</div>
+                <div class="solution-content">
+                    <p><strong>Description</strong>: Solution complète de paiement en ligne pour les développeurs, permettant de traiter des cartes bancaires directement sur votre site.</p>
+                    <p><strong>Avantages</strong>: API bien documentée, personnalisable, reste sur votre site</p>
+                    <p><strong>Inconvénients</strong>: Configuration plus technique, nécessite des connaissances en développement</p>
+                </div>
+            </div>
+
+            <div class="solution">
+                <div class="solution-header">Systèmes de paiement mobiles</div>
+                <div class="solution-content">
+                    <p><strong>Description</strong>: Apple Pay, Google Pay et autres solutions permettant de payer avec un smartphone.</p>
+                    <p><strong>Avantages</strong>: Pratique pour les utilisateurs mobiles, sécurisé</p>
+                    <p><strong>Inconvénients</strong>: Limité aux utilisateurs ayant configuré ces services</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="integration">
+            <h2>Comment intégrer un paiement à son site</h2>
+            <div class="card">
+                <p>Voici les étapes de base pour intégrer une solution de paiement à votre site web:</p>
+                
+                <h3>1. Choisir une solution adaptée à vos besoins</h3>
+                <p>Pour un débutant, PayPal est souvent le plus simple à mettre en place. Pour plus de personnalisation, Stripe est recommandé.</p>
+                
+                <h3>2. Créer un compte chez le fournisseur de paiement</h3>
+                <p>Vous devrez fournir des informations sur votre entreprise et votre compte bancaire.</p>
+                
+                <h3>3. Intégrer le code dans votre site</h3>
+                <p>Exemple d'intégration d'un bouton PayPal simple:</p>
+                <div class="code-block">
+                    &lt;!-- Exemple de bouton PayPal basique --&gt;
+                    &lt;form action="https://www.paypal.com/cgi-bin/webscr" method="post"&gt;
+                        &lt;input type="hidden" name="cmd" value="_xclick"&gt;
+                        &lt;input type="hidden" name="business" value="votre-email@exemple.com"&gt;
+                        &lt;input type="hidden" name="item_name" value="Produit exemple"&gt;
+                        &lt;input type="hidden" name="amount" value="19.99"&gt;
+                        &lt;input type="hidden" name="currency_code" value="EUR"&gt;
+                        &lt;input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynow_LG.gif" 
+                            name="submit" alt="PayPal - La solution de paiement en ligne la plus simple et la plus sécurisée !"&gt;
+                    &lt;/form&gt;
+                </div>
+                
+                <h3>4. Tester votre système en mode sandbox</h3>
+                <p>Tous les bons fournisseurs offrent un environnement de test pour vérifier que tout fonctionne avant de passer en production.</p>
+            </div>
+        </section>
+
+        <section id="securite">
+            <h2>Sécurité des paiements en ligne</h2>
+            <div class="card">
+                <p>La sécurité est primordiale pour les paiements en ligne. Voici les éléments essentiels à connaître:</p>
+                
+                <div class="highlight">
+                    <p><strong>HTTPS est obligatoire!</strong> Votre site doit avoir un certificat SSL valide pour chiffrer les données échangées.</p>
+                </div>
+                
+                <h3>Normes de sécurité</h3>
+                <ul>
+                    <li><strong>PCI DSS</strong>: Ensemble de normes de sécurité que doivent respecter tous les acteurs qui stockent, traitent ou transmettent des données de cartes bancaires.</li>
+                    <li><strong>3D Secure</strong>: Protocole qui ajoute une étape d'authentification supplémentaire pour vérifier l'identité du titulaire de la carte.</li>
+                </ul>
+                
+                <h3>Bonnes pratiques</h3>
+                <ul>
+                    <li>Ne jamais stocker vous-même les numéros de carte complèts</li>
+                    <li>Utiliser des "tokens" plutôt que des numéros de carte pour les paiements récurrents</li>
+                    <li>Limiter le nombre de tentatives de paiement pour éviter les attaques par force brute</li>
+                    <li>Tenir à jour les bibliothèques et plugins de paiement</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Conclusion</h2>
+            <div class="card">
+                <p>Les solutions de paiement en ligne sont essentielles pour tout site e-commerce. En tant que débutant, commencez avec des solutions clés en main comme PayPal avant de vous aventurer dans des intégrations plus complexes.</p>
+                
+                <p>N'oubliez jamais que la confiance de vos utilisateurs est primordiale : un système de paiement sécurisé et fiable est indispensable pour le succès de votre site.</p>
+                
+                <div class="highlight">
+                    <p>Conseil final: Commencez petit, testez abondamment, et évoluez progressivement vers des solutions plus sophistiquées à mesure que vos compétences et votre activité se développent.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Guide des Solutions de Paiement en Ligne pour Débutants © 2025</p>
+    </footer>
+</body>
+</html>
